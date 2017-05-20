@@ -8,6 +8,7 @@ class arrays
 {
 public:
 	int count = 0;
+	int key = 0;
 public:
 	static arrays* ReadArray(ifstream& ifst); 
 	static void arrays::WriteArray(arrays *write_ar, ofstream &ofst);
@@ -22,6 +23,7 @@ class usual_ar:public arrays
 public:
 	void Read(ifstream &ifst);
 	void Write(ofstream &ofst);
+	int UsualSum();
 	usual_ar() {};
 };
 
@@ -31,5 +33,6 @@ class diagonal_ar : public arrays
 public:
 	void Read(ifstream &ifst);
 	void Write(ofstream &ofst);
+	int DiagonalSum();
 	diagonal_ar() {};
 };
