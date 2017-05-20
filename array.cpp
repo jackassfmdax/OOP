@@ -6,6 +6,7 @@ using namespace std;
 
 void diagonal_ar::Read(ifstream &ifst)
 {
+	ifst >> count;//
 	ar_d = new int[count];
 	for (int i = 0; i < count; i++)
 		ifst >> ar_d[i];
@@ -27,6 +28,7 @@ void diagonal_ar::Write(ofstream &ofst)
 
 void usual_ar::Read(ifstream &ifst)
 {
+	ifst >> count;
 	ar_us = new int*[count];
 	for (int i = 0; i < count; i++)
 		ar_us[i] = new int[count];
@@ -37,7 +39,7 @@ void usual_ar::Read(ifstream &ifst)
 
 void usual_ar::Write(ofstream &ofst)
 {
-	ofst << "It is Usual Matrix:" << endl << "Matrix:" << endl;
+	ofst << "It is Usual Matrix: count of elements = " << count << endl << "Matrix:" << endl;
 	for (int i = 0; i < count; i++)
 	{
 		for (int j = 0; j < count; j++)
@@ -45,6 +47,15 @@ void usual_ar::Write(ofstream &ofst)
 		ofst << endl;
 	}
 }
+
+void arrays::Outusual(ofstream &ofst) {//////
+	ofst << endl;  // пустая строка
+}
+
+void usual_ar::Outusual(ofstream &ofst) {/////
+	Write(ofst);
+}
+
 
 arrays* arrays::ReadArray(ifstream& ifst)
 {
@@ -62,14 +73,12 @@ arrays* arrays::ReadArray(ifstream& ifst)
 	default:
 		return NULL;
 	}
-	ifst >> ar->count;
+	ar->key = key;
 	ar->Read(ifst);
 	return ar;
 }
 
 void arrays::WriteArray(arrays *write_ar, ofstream &ofst)
 {
-
 	write_ar->Write(ofst);
-	ofst << "count of elements = " << write_ar->count << endl;
 }
