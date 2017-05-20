@@ -6,15 +6,32 @@ using namespace std;
 
 void diagonal_ar::Read(ifstream &ifst)
 {
+	int w;//
+	ifst >> w;
+	w--;
+	this->w = (diagonal_ar::way)w;
 	ifst >> count;//
 	ar_d = new int[count];
 	for (int i = 0; i < count; i++)
 		ifst >> ar_d[i];
 }
 
+int diagonal_ar::DiagonalSum()
+int diagonal_ar::Sum()//
+{
+	int sum = 0;
+	for (int i = 0; i < count; i++)
+		sum += ar_d[i];
+	return sum;
+}
+
 void diagonal_ar::Write(ofstream &ofst)
 {
-	ofst << "It is Diagonal Matrix:" << endl << "Matrix:" << endl;
+	string way[3] = { "Line", "Column", "Vector" };//
+	ofst << way[w].c_str() << endl;//
+	ofst << "It is Diagonal Matrix: count of elements = " << count << endl << "Matrix:" << endl;
+	ofst << "Sum of elements = " << DiagonalSum() << endl;
+	ofst << "Sum of elements = " << Sum() << endl;
 	for (int i = 0; i < count; i++)
 	{
 		for (int j = 0; j < count; j++)
@@ -28,7 +45,11 @@ void diagonal_ar::Write(ofstream &ofst)
 
 void usual_ar::Read(ifstream &ifst)
 {
-	ifst >> count;
+	int w;//
+	ifst >> w;
+	w--;
+	this->w = (usual_ar::way)w;
+	ifst >> count//
 	ar_us = new int*[count];
 	for (int i = 0; i < count; i++)
 		ar_us[i] = new int[count];
@@ -37,9 +58,24 @@ void usual_ar::Read(ifstream &ifst)
 			ifst >> ar_us[i][j];
 }
 
+int usual_ar::UsualSum()
+int usual_ar::Sum()//
+{
+	int sum = 0;
+	for (int i = 0; i < count; i++)
+		for (int j = 0; j < count; j++)
+			sum += ar_us[i][j];
+	return sum;
+}
+
 void usual_ar::Write(ofstream &ofst)
 {
+
+	string way[3] = { "Line", "Column", "Vector" };//
+	ofst << way[w].c_str() << endl;//
 	ofst << "It is Usual Matrix: count of elements = " << count << endl << "Matrix:" << endl;
+	ofst << "Sum of elements = " << UsualSum() << endl;
+	ofst << "Sum of elements = " << Sum() << endl;
 	for (int i = 0; i < count; i++)
 	{
 		for (int j = 0; j < count; j++)
@@ -54,6 +90,31 @@ void arrays::Outusual(ofstream &ofst) {//////
 
 void usual_ar::Outusual(ofstream &ofst) {/////
 	Write(ofst);
+
+void triangle_ar::Read(ifstream &ifst)
+{
+	ifst >> count;
+	ar_tr = new int*[count];
+	for (int i = 0; i < count; i++)
+		ar_tr[i] = new int[count];
+	for (int i = 0; i < count; i++)
+		for (int j = 0; j < count; j++)
+			if (i >= j)
+				ifst >> ar_tr[i][j];
+}
+
+void triangle_ar::Write(ofstream &ofst)
+{
+	ofst << "It is Triangle Matrix: count of elements = " << count << endl << "Matrix:" << endl;
+	for (int i = 0; i < count; i++)
+	{
+		for (int j = 0; j < count; j++)
+			if (i >= j)
+				ofst << ar_tr[i][j] << '\t';
+			else
+				ofst << "0\t";
+		ofst << endl;
+	}
 }
 
 
@@ -70,6 +131,9 @@ arrays* arrays::ReadArray(ifstream& ifst)
 	case 2:
 		ar = new usual_ar;
 		break;
+	case 3:
+		ar = new triangle_ar;
+		break;
 	default:
 		return NULL;
 	}
@@ -81,4 +145,9 @@ arrays* arrays::ReadArray(ifstream& ifst)
 void arrays::WriteArray(arrays *write_ar, ofstream &ofst)
 {
 	write_ar->Write(ofst);
+}
+
+bool arrays::Compare(arrays *next)//
+{
+	return (Sum() > next->Sum());
 }
