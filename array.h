@@ -8,12 +8,15 @@ class arrays
 {
 public:
 	int count = 0;
-	int key = 0;
+	int key = 0;//
+	int sum = 0;//
 public:
+	bool Compare(arrays *next);//
 	static arrays* ReadArray(ifstream& ifst); 
 	static void arrays::WriteArray(arrays *write_ar, ofstream &ofst);
 	virtual void Read(ifstream &ifst) = 0;
 	virtual void Write(ofstream &ofst) = 0;
+	virtual int Sum() = 0;//
 	arrays() {};
 };
 
@@ -24,6 +27,7 @@ public:
 	void Read(ifstream &ifst);
 	void Write(ofstream &ofst);
 	int UsualSum();
+	int Sum();//
 	usual_ar() {};
 };
 
@@ -34,5 +38,6 @@ public:
 	void Read(ifstream &ifst);
 	void Write(ofstream &ofst);
 	int DiagonalSum();
+	int Sum();//
 	diagonal_ar() {};
 };

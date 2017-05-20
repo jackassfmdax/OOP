@@ -11,6 +11,8 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
 	if (argc != 3) 
 	{
 		cout << "Incorrect command line! Waited: command in_file out_file" << endl;
@@ -22,7 +24,7 @@ int main(int argc, char* argv[])
 	cout << "Start" << endl;
 	container c;
 	c.Input(in);
-	out << "Filled contienr." << endl;
+	c.Sorting();
 	c.Output(out);
 	c.Clear();
 	out << "Empty container." << endl;
