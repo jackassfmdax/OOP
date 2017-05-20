@@ -12,9 +12,20 @@ void diagonal_ar::Read(ifstream &ifst)
 		ifst >> ar_d[i];
 }
 
+int diagonal_ar::DiagonalSum()
+int diagonal_ar::Sum()//
+{
+	int sum = 0;
+	for (int i = 0; i < count; i++)
+		sum += ar_d[i];
+	return sum;
+}
+
 void diagonal_ar::Write(ofstream &ofst)
 {
 	ofst << "It is Diagonal Matrix: count of elements = " << count << endl << "Matrix:" << endl;
+	ofst << "Sum of elements = " << DiagonalSum() << endl;
+	ofst << "Sum of elements = " << Sum() << endl;
 	for (int i = 0; i < count; i++)
 	{
 		for (int j = 0; j < count; j++)
@@ -37,9 +48,21 @@ void usual_ar::Read(ifstream &ifst)
 			ifst >> ar_us[i][j];
 }
 
+int usual_ar::UsualSum()
+int usual_ar::Sum()//
+{
+	int sum = 0;
+	for (int i = 0; i < count; i++)
+		for (int j = 0; j < count; j++)
+			sum += ar_us[i][j];
+	return sum;
+}
+
 void usual_ar::Write(ofstream &ofst)
 {
 	ofst << "It is Usual Matrix: count of elements = " << count << endl << "Matrix:" << endl;
+	ofst << "Sum of elements = " << UsualSum() << endl;
+	ofst << "Sum of elements = " << Sum() << endl;
 	for (int i = 0; i < count; i++)
 	{
 		for (int j = 0; j < count; j++)
@@ -102,4 +125,9 @@ arrays* arrays::ReadArray(ifstream& ifst)
 void arrays::WriteArray(arrays *write_ar, ofstream &ofst)
 {
 	write_ar->Write(ofst);
+}
+
+bool arrays::Compare(arrays *next)//
+{
+	return (Sum() > next->Sum());
 }
