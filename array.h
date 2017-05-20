@@ -8,6 +8,7 @@ class arrays
 {
 public:
 	int count = 0;
+	int key = 0;
 public:
 	static arrays* ReadArray(ifstream& ifst); 
 	static void arrays::WriteArray(arrays *write_ar, ofstream &ofst);
@@ -32,4 +33,14 @@ public:
 	void Read(ifstream &ifst);
 	void Write(ofstream &ofst);
 	diagonal_ar() {};
+};
+
+class triangle_ar : public arrays
+{
+public:
+	int** ar_tr;
+public:
+	void Read(ifstream &ifst);
+	void Write(ofstream &ofst);
+	triangle_ar() {};
 };
