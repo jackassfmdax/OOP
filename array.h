@@ -8,6 +8,9 @@ class arrays
 {
 public:
 	int count = 0;
+	int key = 0; //
+	enum way { Line, Column, Vector };
+	way w;
 public:
 	static arrays* ReadArray(ifstream& ifst); 
 	static void arrays::WriteArray(arrays *write_ar, ofstream &ofst);

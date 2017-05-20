@@ -1,12 +1,13 @@
 Filled contienr.
 Container content 4 elements.
-4: It is Usual Matrix:
+4: Column
+It is Usual Matrix: count of elements = 3
 Matrix:
 12	45	78	
 23	56	89	
 87	54	21	
-count of elements = 3
-3: It is Diagonal Matrix:
+3: Vector
+It is Diagonal Matrix: count of elements = 7
 Matrix:
 1	0	0	0	0	0	0	
 0	2	0	0	0	0	0	
@@ -15,17 +16,16 @@ Matrix:
 0	0	0	0	5	0	0	
 0	0	0	0	0	6	0	
 0	0	0	0	0	0	7	
-count of elements = 7
-2: It is Usual Matrix:
+2: Line
+It is Usual Matrix: count of elements = 2
 Matrix:
 4	9	
 7	12	
-count of elements = 2
-1: It is Diagonal Matrix:
+1: Vector
+It is Diagonal Matrix: count of elements = 3
 Matrix:
 7	0	0	
 0	5	0	
 0	0	3	
-count of elements = 3
 Empty container.
 Container content 0 elements.
