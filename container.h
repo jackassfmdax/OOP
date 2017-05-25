@@ -14,7 +14,6 @@ class container
 	element *data;
 	int lenght = 0;
 public:
-	void Sorting();//
 	void Init();
 	void Input(ifstream& ifst);
 	void Output(ofstream& ofst);
