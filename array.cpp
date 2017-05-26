@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include <fstream>
 #include "array.h"
+#include "protect.h"
 
 using namespace std;
 
@@ -8,15 +9,17 @@ void diagonal_ar::Read(ifstream &ifst)
 {
 	int w;//
 	ifst >> w;
+	CheckWrongInput(ifst);//
+	CheckWay(w);
 	w--;
 	this->w = (diagonal_ar::way)w;
 	ifst >> count;//
+	CheckCount(count);
 	ar_d = new int[count];
 	for (int i = 0; i < count; i++)
 		ifst >> ar_d[i];
 }
 
-int diagonal_ar::DiagonalSum()
 int diagonal_ar::Sum()//
 {
 	int sum = 0;
@@ -30,7 +33,6 @@ void diagonal_ar::Write(ofstream &ofst)
 	string way[3] = { "Line", "Column", "Vector" };//
 	ofst << way[w].c_str() << endl;//
 	ofst << "It is Diagonal Matrix: count of elements = " << count << endl << "Matrix:" << endl;
-	ofst << "Sum of elements = " << DiagonalSum() << endl;
 	ofst << "Sum of elements = " << Sum() << endl;
 	for (int i = 0; i < count; i++)
 	{
@@ -47,9 +49,12 @@ void usual_ar::Read(ifstream &ifst)
 {
 	int w;//
 	ifst >> w;
+	CheckWrongInput(ifst);//
+	CheckWay(w);//
 	w--;
 	this->w = (usual_ar::way)w;
-	ifst >> count//
+	ifst >> count;//
+	CheckCount(count);
 	ar_us = new int*[count];
 	for (int i = 0; i < count; i++)
 		ar_us[i] = new int[count];
@@ -58,7 +63,6 @@ void usual_ar::Read(ifstream &ifst)
 			ifst >> ar_us[i][j];
 }
 
-int usual_ar::UsualSum()
 int usual_ar::Sum()//
 {
 	int sum = 0;
@@ -74,7 +78,6 @@ void usual_ar::Write(ofstream &ofst)
 	string way[3] = { "Line", "Column", "Vector" };//
 	ofst << way[w].c_str() << endl;//
 	ofst << "It is Usual Matrix: count of elements = " << count << endl << "Matrix:" << endl;
-	ofst << "Sum of elements = " << UsualSum() << endl;
 	ofst << "Sum of elements = " << Sum() << endl;
 	for (int i = 0; i < count; i++)
 	{
@@ -84,16 +87,26 @@ void usual_ar::Write(ofstream &ofst)
 	}
 }
 
-void arrays::Outusual(ofstream &ofst) {//////
+void arrays::Outusual(ofstream &ofst) 
+{
 	ofst << endl;  // пустая строка
 }
 
-void usual_ar::Outusual(ofstream &ofst) {/////
+void usual_ar::Outusual(ofstream &ofst) 
+{
 	Write(ofst);
+}
 
 void triangle_ar::Read(ifstream &ifst)
 {
+	int w;//
+	ifst >> w;
+	CheckWrongInput(ifst);//
+	CheckWay(w);//
+	w--;
+	this->w = (triangle_ar::way)w;
 	ifst >> count;
+	CheckCount(count);
 	ar_tr = new int*[count];
 	for (int i = 0; i < count; i++)
 		ar_tr[i] = new int[count];
@@ -101,6 +114,15 @@ void triangle_ar::Read(ifstream &ifst)
 		for (int j = 0; j < count; j++)
 			if (i >= j)
 				ifst >> ar_tr[i][j];
+}
+
+int triangle_ar::Sum()//
+{
+	int sum = 0;
+	for (int i = 0; i < count; i++)
+		for (int j = 0; j < count; j++)
+			sum += ar_tr[i][j];
+	return sum;
 }
 
 void triangle_ar::Write(ofstream &ofst)
@@ -122,7 +144,10 @@ arrays* arrays::ReadArray(ifstream& ifst)
 {
 	arrays* ar;
 	int key;
+	CheckInputFile(ifst);//
 	ifst >> key;
+	CheckWrongInput(ifst);//
+	CheckKey(key);//
 	switch (key)
 	{
 	case 1:
@@ -144,6 +169,7 @@ arrays* arrays::ReadArray(ifstream& ifst)
 
 void arrays::WriteArray(arrays *write_ar, ofstream &ofst)
 {
+	CheckOutputFile(ofst);//
 	write_ar->Write(ofst);
 }
 

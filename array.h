@@ -30,7 +30,7 @@ public:
 	void Read(ifstream &ifst);
 	void Write(ofstream &ofst);
 	void Outusual(ofstream &ofst);
-	int UsualSum();
+	//int UsualSum();
 	int Sum();//
 	usual_ar() {};
 };
@@ -41,7 +41,7 @@ class diagonal_ar : public arrays
 public:
 	void Read(ifstream &ifst);
 	void Write(ofstream &ofst);
-	int DiagonalSum();
+	//int DiagonalSum();
 	int Sum();//
 	diagonal_ar() {};
 };
@@ -53,5 +53,7 @@ public:
 public:
 	void Read(ifstream &ifst);
 	void Write(ofstream &ofst);
+	//int TrianglSum();
+	int Sum();//
 	triangle_ar() {};
 };
