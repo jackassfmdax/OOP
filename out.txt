@@ -1,12 +1,35 @@
 Filled contienr.
 Container content 4 elements.
-4: Column
+4: It is Usual Matrix: count of elements = 3
+Matrix:
+12	45	78	
+23	56	89	
+87	54	21	
+3: It is Diagonal Matrix: count of elements = 7
+Matrix:
+1	0	0	0	0	0	0	
+0	2	0	0	0	0	0	
+0	0	3	0	0	0	0	
+0	0	0	4	0	0	0	
+0	0	0	0	5	0	0	
+0	0	0	0	0	6	0	
+0	0	0	0	0	0	7	
+2: It is Usual Matrix: count of elements = 2
+Matrix:
+4	9	
+7	12	
+1: It is Diagonal Matrix: count of elements = 3
+Matrix:
+7	0	0	
+0	5	0	
+0	0	3	
+Multimethod
+Usual & Diagonal Matrix
 It is Usual Matrix: count of elements = 3
 Matrix:
 12	45	78	
 23	56	89	
 87	54	21	
-3: Vector
 It is Diagonal Matrix: count of elements = 7
 Matrix:
 1	0	0	0	0	0	0	
@@ -16,12 +39,61 @@ Matrix:
 0	0	0	0	5	0	0	
 0	0	0	0	0	6	0	
 0	0	0	0	0	0	7	
-2: Line
+Usual & Usual Matrix
+It is Usual Matrix: count of elements = 3
+Matrix:
+12	45	78	
+23	56	89	
+87	54	21	
 It is Usual Matrix: count of elements = 2
 Matrix:
 4	9	
 7	12	
-1: Vector
+Usual & Diagonal Matrix
+It is Usual Matrix: count of elements = 3
+Matrix:
+12	45	78	
+23	56	89	
+87	54	21	
+It is Diagonal Matrix: count of elements = 3
+Matrix:
+7	0	0	
+0	5	0	
+0	0	3	
+Diagonal & Usual Matrix
+It is Diagonal Matrix: count of elements = 7
+Matrix:
+1	0	0	0	0	0	0	
+0	2	0	0	0	0	0	
+0	0	3	0	0	0	0	
+0	0	0	4	0	0	0	
+0	0	0	0	5	0	0	
+0	0	0	0	0	6	0	
+0	0	0	0	0	0	7	
+It is Usual Matrix: count of elements = 2
+Matrix:
+4	9	
+7	12	
+Diagonal & Diagonal Matrix
+It is Diagonal Matrix: count of elements = 7
+Matrix:
+1	0	0	0	0	0	0	
+0	2	0	0	0	0	0	
+0	0	3	0	0	0	0	
+0	0	0	4	0	0	0	
+0	0	0	0	5	0	0	
+0	0	0	0	0	6	0	
+0	0	0	0	0	0	7	
+It is Diagonal Matrix: count of elements = 3
+Matrix:
+7	0	0	
+0	5	0	
+0	0	3	
+Usual & Diagonal Matrix
+It is Usual Matrix: count of elements = 2
+Matrix:
+4	9	
+7	12	
 It is Diagonal Matrix: count of elements = 3
 Matrix:
 7	0	0	

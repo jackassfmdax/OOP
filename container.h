@@ -14,6 +14,7 @@ class container
 	element *data;
 	int lenght = 0;
 public:
+	void Multimethod(ofstream &ofst);
 	void Init();
 	void Input(ifstream& ifst);
 	void Output(ofstream& ofst);

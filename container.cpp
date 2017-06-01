@@ -45,3 +45,22 @@ void container::Clear()
 	}
 	lenght = 0;
 }
+
+void container::Multimethod(ofstream &ofst)
+{
+	element *temp1 = data;
+	element *temp2 = data;
+	ofst << "Multimethod" << endl;
+	while (temp1->next != NULL)
+	{
+		temp2 = temp1->next;
+		while (temp2 != NULL)
+		{
+			temp1->ar->Multimethod(temp2->ar, ofst);
+			temp1->ar->WriteArray(temp1->ar, ofst);
+			temp2->ar->WriteArray(temp2->ar, ofst);
+			temp2 = temp2->next;
+		}
+		temp1 = temp1->next;
+	}
+}

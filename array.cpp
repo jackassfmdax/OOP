@@ -6,11 +6,7 @@ using namespace std;
 
 void diagonal_ar::Read(ifstream &ifst)
 {
-	int w;//
-	ifst >> w;
-	w--;
-	this->w = (diagonal_ar::way)w;
-	ifst >> count;//
+	ifst >> count;
 	ar_d = new int[count];
 	for (int i = 0; i < count; i++)
 		ifst >> ar_d[i];
@@ -18,8 +14,6 @@ void diagonal_ar::Read(ifstream &ifst)
 
 void diagonal_ar::Write(ofstream &ofst)
 {
-	string way[3] = { "Line", "Column", "Vector" };//
-	ofst << way[w].c_str() << endl;//
 	ofst << "It is Diagonal Matrix: count of elements = " << count << endl << "Matrix:" << endl;
 	for (int i = 0; i < count; i++)
 	{
@@ -32,13 +26,24 @@ void diagonal_ar::Write(ofstream &ofst)
 	}
 }
 
+void diagonal_ar::Multimethod(arrays *ar, ofstream &ofst)
+{
+	ar->DiagonalMultimethod(ofst);
+}
+
+void diagonal_ar::DiagonalMultimethod(ofstream &ofst)
+{
+	ofst << "Diagonal & Diagonal Matrix" << endl;
+}
+
+void diagonal_ar::UsualMultimethod(ofstream &ofst)
+{
+	ofst << "Usual & Diagonal Matrix" << endl;
+}
+
 void usual_ar::Read(ifstream &ifst)
 {
-	int w;//
-	ifst >> w;
-	w--;
-	this->w = (usual_ar::way)w;
-	ifst >> count//
+	ifst >> count;
 	ar_us = new int*[count];
 	for (int i = 0; i < count; i++)
 		ar_us[i] = new int[count];
@@ -49,8 +54,6 @@ void usual_ar::Read(ifstream &ifst)
 
 void usual_ar::Write(ofstream &ofst)
 {
-	string way[3] = { "Line", "Column", "Vector" };//
-	ofst << way[w].c_str() << endl;//
 	ofst << "It is Usual Matrix: count of elements = " << count << endl << "Matrix:" << endl;
 	for (int i = 0; i < count; i++)
 	{
@@ -58,6 +61,21 @@ void usual_ar::Write(ofstream &ofst)
 			ofst << ar_us[i][j] << '\t';
 		ofst << endl;
 	}
+}
+
+void usual_ar::Multimethod(arrays *ar, ofstream &ofst)
+{
+	ar->UsualMultimethod(ofst);
+}
+
+void usual_ar::UsualMultimethod(ofstream &ofst)
+{
+	ofst << "Usual & Usual Matrix" << endl;
+}
+
+void usual_ar::DiagonalMultimethod(ofstream &ofst)
+{
+	ofst << "Diagonal & Usual Matrix" << endl;
 }
 
 arrays* arrays::ReadArray(ifstream& ifst)
