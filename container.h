@@ -19,6 +19,7 @@ public:
 	void Input(ifstream& ifst);
 	void Output(ofstream& ofst);
 	void Clear();
+	void Multimethod(ofstream &ofst);
 	container() { Init(); }
 	~container() { Clear(); };
 };

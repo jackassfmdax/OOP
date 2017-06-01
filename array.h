@@ -20,40 +20,56 @@ public:
 	virtual void Write(ofstream &ofst) = 0;
 	virtual void Outusual(ofstream &ofst);
 	virtual int Sum() = 0;//
+	virtual void Multimethod(arrays *ar, ofstream &ofst) = 0;
+	virtual void DiagonalMultimethod(ofstream &ofst) = 0;
+	virtual void UsualMultimethod(ofstream &ofst) = 0;
+	virtual void TrianglMultimethod(ofstream &ofst) = 0;
 	arrays() {};
 };
 
-class usual_ar:public arrays
+class usualArray:public arrays
 {
-	int** ar_us;
+	int** arUs;
 public:
 	void Read(ifstream &ifst);
 	void Write(ofstream &ofst);
 	void Outusual(ofstream &ofst);
 	//int UsualSum();
 	int Sum();//
-	usual_ar() {};
+	void Multimethod(arrays *ar, ofstream &ofst);
+	void DiagonalMultimethod(ofstream &ofst);
+	void UsualMultimethod(ofstream &ofst);
+	void TrianglMultimethod(ofstream &ofst);
+	usualArray() {};
 };
 
-class diagonal_ar : public arrays
+class diagonalArray : public arrays
 {
-	int* ar_d;
+	int* arD;
 public:
 	void Read(ifstream &ifst);
 	void Write(ofstream &ofst);
 	//int DiagonalSum();
 	int Sum();//
-	diagonal_ar() {};
+	void Multimethod(arrays *ar, ofstream &ofst);
+	void DiagonalMultimethod(ofstream &ofst);
+	void UsualMultimethod(ofstream &ofst);
+	void TrianglMultimethod(ofstream &ofst);
+	diagonalArray() {};
 };
 
-class triangle_ar : public arrays
+class triangleArray : public arrays
 {
 public:
-	int** ar_tr;
+	int** arTr;
 public:
 	void Read(ifstream &ifst);
 	void Write(ofstream &ofst);
 	//int TrianglSum();
 	int Sum();//
-	triangle_ar() {};
+	void Multimethod(arrays *ar, ofstream &ofst);
+	void DiagonalMultimethod(ofstream &ofst);
+	void UsualMultimethod(ofstream &ofst);
+	void TrianglMultimethod(ofstream &ofst);
+	triangleArray() {};
 };

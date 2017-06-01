@@ -8,12 +8,103 @@ Sum of elements = 43
 4	9	7	
 12	6	1	
 3	0	1	
-Column
+
+Multimethod
+Diagonal & Diagonal Matrix
+Vector
+It is Diagonal Matrix: count of elements = 3
+Matrix:
+Sum of elements = 15
+7	0	0	
+0	3	0	
+0	0	5	
+Vector
+It is Diagonal Matrix: count of elements = 6
+Matrix:
+Sum of elements = 21
+1	0	0	0	0	0	
+0	2	0	0	0	0	
+0	0	3	0	0	0	
+0	0	0	4	0	0	
+0	0	0	0	5	0	
+0	0	0	0	0	6	
+Diagonal & Usual Matrix
+Vector
+It is Diagonal Matrix: count of elements = 3
+Matrix:
+Sum of elements = 15
+7	0	0	
+0	3	0	
+0	0	5	
+Line
 It is Usual Matrix: count of elements = 3
 Matrix:
-Sum of elements = 465
-12	45	78	
+Sum of elements = 43
+4	9	7	
+12	6	1	
+3	0	1	
+Diagonal & Triangle Matrix
+Vector
+It is Diagonal Matrix: count of elements = 3
+Matrix:
+Sum of elements = 15
+7	0	0	
+0	3	0	
+0	0	5	
+It is Triangle Matrix: count of elements = 3
+Matrix:
+Sum of elements = 303
+12	0	0	
+45	78	0	
 23	56	89	
-87	54	21	
+Diagonal & Usual Matrix
+Vector
+It is Diagonal Matrix: count of elements = 6
+Matrix:
+Sum of elements = 21
+1	0	0	0	0	0	
+0	2	0	0	0	0	
+0	0	3	0	0	0	
+0	0	0	4	0	0	
+0	0	0	0	5	0	
+0	0	0	0	0	6	
+Line
+It is Usual Matrix: count of elements = 3
+Matrix:
+Sum of elements = 43
+4	9	7	
+12	6	1	
+3	0	1	
+Diagonal & Triangle Matrix
+Vector
+It is Diagonal Matrix: count of elements = 6
+Matrix:
+Sum of elements = 21
+1	0	0	0	0	0	
+0	2	0	0	0	0	
+0	0	3	0	0	0	
+0	0	0	4	0	0	
+0	0	0	0	5	0	
+0	0	0	0	0	6	
+It is Triangle Matrix: count of elements = 3
+Matrix:
+Sum of elements = 303
+12	0	0	
+45	78	0	
+23	56	89	
+Usual & Triangle Matrix
+Line
+It is Usual Matrix: count of elements = 3
+Matrix:
+Sum of elements = 43
+4	9	7	
+12	6	1	
+3	0	1	
+It is Triangle Matrix: count of elements = 3
+Matrix:
+Sum of elements = 303
+12	0	0	
+45	78	0	
+23	56	89	
 Empty container.
 Containrt contents 0 elements.

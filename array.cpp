@@ -5,30 +5,30 @@
 
 using namespace std;
 
-void diagonal_ar::Read(ifstream &ifst)
+void diagonalArray::Read(ifstream &ifst)
 {
 	int w;//
 	ifst >> w;
 	CheckWrongInput(ifst);//
 	CheckWay(w);
 	w--;
-	this->w = (diagonal_ar::way)w;
+	this->w = (diagonalArray::way)w;
 	ifst >> count;//
 	CheckCount(count);
-	ar_d = new int[count];
+	arD = new int[count];
 	for (int i = 0; i < count; i++)
-		ifst >> ar_d[i];
+		ifst >> arD[i];
 }
 
-int diagonal_ar::Sum()//
+int diagonalArray::Sum()//
 {
 	int sum = 0;
 	for (int i = 0; i < count; i++)
-		sum += ar_d[i];
+		sum += arD[i];
 	return sum;
 }
 
-void diagonal_ar::Write(ofstream &ofst)
+void diagonalArray::Write(ofstream &ofst)
 {
 	string way[3] = { "Line", "Column", "Vector" };//
 	ofst << way[w].c_str() << endl;//
@@ -38,41 +38,61 @@ void diagonal_ar::Write(ofstream &ofst)
 	{
 		for (int j = 0; j < count; j++)
 			if (i == j)
-				ofst << ar_d[i] << '\t';
+				ofst << arD[i] << '\t';
 			else
 				ofst << "0\t";
 		ofst << endl;
 	}
 }
 
-void usual_ar::Read(ifstream &ifst)
+void diagonalArray::Multimethod(arrays *ar, ofstream &ofst)
+{
+	ar->DiagonalMultimethod(ofst);
+}
+
+void diagonalArray::DiagonalMultimethod(ofstream &ofst)
+{
+	ofst << "Diagonal & Diagonal Matrix" << endl;
+}
+
+void diagonalArray::UsualMultimethod(ofstream &ofst)
+{
+	ofst << "Usual & Diagonal Matrix" << endl;
+}
+
+void diagonalArray::TrianglMultimethod(ofstream &ofst)
+{
+	ofst << "Triangle & Diagonal Matrix" << endl;
+}
+
+void usualArray::Read(ifstream &ifst)
 {
 	int w;//
 	ifst >> w;
 	CheckWrongInput(ifst);//
 	CheckWay(w);//
 	w--;
-	this->w = (usual_ar::way)w;
+	this->w = (usualArray::way)w;
 	ifst >> count;//
 	CheckCount(count);
-	ar_us = new int*[count];
+	arUs = new int*[count];
 	for (int i = 0; i < count; i++)
-		ar_us[i] = new int[count];
+		arUs[i] = new int[count];
 	for (int i = 0; i < count; i++)
 		for (int j = 0; j < count; j++)
-			ifst >> ar_us[i][j];
+			ifst >> arUs[i][j];
 }
 
-int usual_ar::Sum()//
+int usualArray::Sum()//
 {
 	int sum = 0;
 	for (int i = 0; i < count; i++)
 		for (int j = 0; j < count; j++)
-			sum += ar_us[i][j];
+			sum += arUs[i][j];
 	return sum;
 }
 
-void usual_ar::Write(ofstream &ofst)
+void usualArray::Write(ofstream &ofst)
 {
 
 	string way[3] = { "Line", "Column", "Vector" };//
@@ -82,9 +102,29 @@ void usual_ar::Write(ofstream &ofst)
 	for (int i = 0; i < count; i++)
 	{
 		for (int j = 0; j < count; j++)
-			ofst << ar_us[i][j] << '\t';
+			ofst << arUs[i][j] << '\t';
 		ofst << endl;
 	}
+}
+
+void usualArray::Multimethod(arrays *ar, ofstream &ofst)
+{
+	ar->UsualMultimethod(ofst);
+}
+
+void usualArray::UsualMultimethod(ofstream &ofst)
+{
+	ofst << "Usual & Usual Matrix" << endl;
+}
+
+void usualArray::DiagonalMultimethod(ofstream &ofst)
+{
+	ofst << "Diagonal & Usual Matrix" << endl;
+}
+
+void usualArray::TrianglMultimethod(ofstream &ofst)
+{
+	ofst << "Triangle & Usual Matrix" << endl;
 }
 
 void arrays::Outusual(ofstream &ofst) 
@@ -92,53 +132,75 @@ void arrays::Outusual(ofstream &ofst)
 	ofst << endl;  // пустая строка
 }
 
-void usual_ar::Outusual(ofstream &ofst) 
+void usualArray::Outusual(ofstream &ofst) 
 {
 	Write(ofst);
 }
 
-void triangle_ar::Read(ifstream &ifst)
+void triangleArray::Read(ifstream &ifst)
 {
 	int w;//
 	ifst >> w;
 	CheckWrongInput(ifst);//
 	CheckWay(w);//
 	w--;
-	this->w = (triangle_ar::way)w;
+	this->w = (triangleArray::way)w;
 	ifst >> count;
 	CheckCount(count);
-	ar_tr = new int*[count];
+	arTr = new int*[count];
 	for (int i = 0; i < count; i++)
-		ar_tr[i] = new int[count];
+		arTr[i] = new int[count];
 	for (int i = 0; i < count; i++)
 		for (int j = 0; j < count; j++)
 			if (i >= j)
-				ifst >> ar_tr[i][j];
+				ifst >> arTr[i][j];
+			else
+				arTr[i][j] = 0;
 }
 
-int triangle_ar::Sum()//
+int triangleArray::Sum()//
 {
 	int sum = 0;
 	for (int i = 0; i < count; i++)
 		for (int j = 0; j < count; j++)
-			sum += ar_tr[i][j];
+			sum += arTr[i][j];
 	return sum;
 }
 
-void triangle_ar::Write(ofstream &ofst)
+void triangleArray::Write(ofstream &ofst)
 {
 	ofst << "It is Triangle Matrix: count of elements = " << count << endl << "Matrix:" << endl;
+	ofst << "Sum of elements = " << Sum() << endl;
 	for (int i = 0; i < count; i++)
 	{
 		for (int j = 0; j < count; j++)
 			if (i >= j)
-				ofst << ar_tr[i][j] << '\t';
+				ofst << arTr[i][j] << '\t';
 			else
 				ofst << "0\t";
 		ofst << endl;
 	}
 }
 
+void triangleArray::Multimethod(arrays *ar, ofstream &ofst)
+{
+	ar->UsualMultimethod(ofst);
+}
+
+void triangleArray::UsualMultimethod(ofstream &ofst)
+{
+	ofst << "Usual & Triangle Matrix" << endl;
+}
+
+void triangleArray::DiagonalMultimethod(ofstream &ofst)
+{
+	ofst << "Diagonal & Triangle Matrix" << endl;
+}
+
+void triangleArray::TrianglMultimethod(ofstream &ofst)
+{
+	ofst << "Triangle & Triangle Matrix" << endl;
+}
 
 arrays* arrays::ReadArray(ifstream& ifst)
 {
@@ -151,13 +213,13 @@ arrays* arrays::ReadArray(ifstream& ifst)
 	switch (key)
 	{
 	case 1:
-		ar = new diagonal_ar;
+		ar = new diagonalArray;
 		break;
 	case 2:
-		ar = new usual_ar;
+		ar = new usualArray;
 		break;
 	case 3:
-		ar = new triangle_ar;
+		ar = new triangleArray;
 		break;
 	default:
 		return NULL;

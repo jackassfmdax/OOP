@@ -26,6 +26,7 @@ int main(int argc, char* argv[])
 	c.Input(in);
 	c.Sorting();
 	c.Output(out);
+	c.Multimethod(out);
 	c.Clear();
 	out << "Empty container." << endl;
 	c.Output(out);
